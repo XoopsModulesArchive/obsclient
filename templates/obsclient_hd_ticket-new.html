@@ -1,0 +1,55 @@
+<div class=moduleHead>
+  <a href="<{$xoops_url}>/modules/obsclient/index.php"><{$sectionhead}></a> : <a href="<{$xoops_url}>/modules/obsclient/hd_index.php">Help Desk</a> : Create New Ticket
+</div>
+<table class="outer" cellspacing="1">
+  <tr>
+    <td colspan="2" class="head">Enter a New Help Desk Ticket</td>
+  </tr>
+  <form name="newticket" action="hd_ticket_do.php" method="post">
+  <tr>
+    <td class="title">User Name:</td>
+    <td class="even"><{$xoops_uname}></td>
+  </tr>
+  <tr>
+    <td class="title">Entry Date:</td>
+    <td class="odd"><{$entrydate}></td>
+  </tr>
+  <tr>
+    <td class="title">Client / Dept:</td>
+    <td class="even">
+      <select name="clientid">
+        <{html_options values=$clientid output=$clientnames}>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Category:</td>
+    <td class="odd">
+      <select name="categoryid">
+        <{html_options values=$categoryid output=$categorynames}>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td class="title">Priority:</td>
+    <td class="even">Unassigned</td>
+  </tr>
+  <tr>
+    <td class="title">Status:</td>
+    <td class="odd">New</td>
+  </tr>
+  <tr>
+    <td class="title">Ticket Subject:</td>
+    <td class="even"><input type='text' name='ticketsubject' id='ticketsubject' size='30' maxlength='50' value=''></td>
+  </tr>
+  <tr>
+    <td class="title">Ticket Details:</td>
+    <td class="odd"><textarea name='ticketdetails' id='ticketdetails' rows='5' cols='50'></textarea></td>
+  </tr>
+  <tr>
+    <td class="title">&nbsp;</td>
+    <td class="even"><input type='submit' class='formButton' name='submit'  id='submit' value='Submit'></input></td>
+  </tr>
+  <input type="hidden" name="ticketstate" value="new">
+  </form>
+</table>

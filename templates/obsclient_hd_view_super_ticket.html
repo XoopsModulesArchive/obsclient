@@ -1,0 +1,30 @@
+<div class=moduleHead>
+  <a href="<{$xoops_url}>/modules/obsclient/index.php"><{$sectionhead}></a> : <a href="<{$xoops_url}>/modules/obsclient/hd_index.php">Help Desk</a> : View Existing Tickets
+</div>
+<table class="outer" cellspacing="1">
+  <tr>
+    <td colspan="7" class="head">Help Desk Tickets - Click on a heading to sort records</td>
+  </tr>
+  <tr>
+    <td class="head"><a class="head" href="hd_view_super_ticket.php?ViewBy=date"> Entry Date </a></td>
+    <td class="head"><a class="head" href="hd_view_super_ticket.php?ViewBy=uname"> Owner </a></td>
+    <td class="head"><a class="head" href="hd_view_super_ticket.php?ViewBy=subject"> Ticket Subject </a></td>
+    <td class="head"><a class="head" href="hd_view_super_ticket.php?ViewBy=status"> Status </a></td>
+    <td class="head"><a class="head" href="hd_view_super_ticket.php?ViewBy=priority"> Priority </a></td>
+    <td class="head"><a class="head" href="hd_view_super_ticket.php?ViewBy=category"> Category </a></td>
+    <td class="head"><a class="head" href="hd_view_super_ticket.php?ViewBy=client"> Client </a></td>
+  </tr>
+  <{section name=mysec loop=$usertickets}>
+  <{strip}>
+  <tr>
+    <td class="<{cycle values="even,even,even,even,even,even,odd,odd,odd,odd,odd,odd"}>"><a href="hd_super_ticket.php?TicketState=update&TicketID=<{$usertickets[mysec].TicketID}>"><{$usertickets[mysec].EntryDate}></a></td>
+    <td class="<{cycle values="even,even,even,even,even,even,odd,odd,odd,odd,odd,odd"}>"><a href="hd_super_ticket.php?TicketState=update&TicketID=<{$usertickets[mysec].TicketID}>"><{$usertickets[mysec].uname}></a></td>
+    <td class="<{cycle values="even,even,even,even,even,even,odd,odd,odd,odd,odd,odd"}>"><a href="hd_super_ticket.php?TicketState=update&TicketID=<{$usertickets[mysec].TicketID}>"><{$usertickets[mysec].TicketSubject}></a></td>
+    <td class="<{cycle values="even,even,even,even,even,even,odd,odd,odd,odd,odd,odd"}>"><a href="hd_super_ticket.php?TicketState=update&TicketID=<{$usertickets[mysec].TicketID}>"><{$usertickets[mysec].StatusName}></a></td>
+    <td class="<{cycle values="even,even,even,even,even,even,odd,odd,odd,odd,odd,odd"}>"><a href="hd_super_ticket.php?TicketState=update&TicketID=<{$usertickets[mysec].TicketID}>"><{$usertickets[mysec].PriorityName}></a></td>
+    <td class="<{cycle values="even,even,even,even,even,even,odd,odd,odd,odd,odd,odd"}>"><a href="hd_super_ticket.php?TicketState=update&TicketID=<{$usertickets[mysec].TicketID}>"><{$usertickets[mysec].CategoryName}></a></td>
+    <td class="<{cycle values="even,even,even,even,even,even,odd,odd,odd,odd,odd,odd"}>"><a href="hd_super_ticket.php?TicketState=update&TicketID=<{$usertickets[mysec].TicketID}>"><{$usertickets[mysec].ClientName}></a></td>
+  </tr>
+  <{/strip}>
+  <{/section}>
+</table>

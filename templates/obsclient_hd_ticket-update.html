@@ -1,0 +1,82 @@
+<div class=moduleHead>
+  <a href="<{$xoops_url}>/modules/obsclient/index.php"><{$sectionhead}></a> : <a href="<{$xoops_url}>/modules/obsclient/hd_index.php">Help Desk</a> : Update Existing Ticket
+</div>
+<table class="outer" cellspacing="1">
+  <tr>
+    <td colspan="2" class="head">Help Desk Ticket</td>
+  </tr>
+  <tr>
+    <td class="title">User Name:</td>
+    <td class="even"><{$ticketuname}></td>
+  </tr>
+  <tr>
+    <td class="title">Entry Date:</td>
+    <td class="odd"><{$ticketentrydate}></td>
+  </tr>
+  <tr>
+    <td class="title">Client / Dept:</td>
+    <td class="even"><{$ticketclientname}></td>
+  </tr>
+  <tr>
+    <td class="title">Category:</td>
+    <td class="odd"><{$ticketcategoryname}></td>
+  </tr>
+  <tr>
+    <td class="title">Priority:</td>
+    <td class="even"><{$ticketpriorityname}></td>
+  </tr>
+  <tr>
+    <td class="title">Status:</td>
+    <td class="odd"><{$ticketstatusname}></td>
+  </tr>
+ <tr>
+    <td class="title">Ticket Subject:</td>
+    <td class="even"><{$ticketsubject}></td>
+  </tr>
+  <tr>
+    <td class="title">Ticket Details:</td>
+    <td class="odd"><{$ticketdetails}><br><br><br></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="head">Updates To Help Desk Ticket</td>
+  </tr>
+  <{section name=mysec loop=$ticketupdates}>
+  <{strip}>
+  <tr>
+    <td class="title">Updated By:</td>
+    <td class="<{cycle values="even,even,even,odd,odd,odd"}>"><{$ticketupdates[mysec].UNAME}></td>
+  </tr>
+  <tr>
+    <td class="title">Date Updated:</td>
+    <td class="<{cycle values="even,even,even,odd,odd,odd"}>"><{$ticketupdates[mysec].EntryDate}></td>
+  </tr>
+  <tr>
+    <td class="title">Update Details:</td>
+    <td class="<{cycle values="even,even,even,odd,odd,odd"}>"><{$ticketupdates[mysec].UpdateDetails}><br><br><br></td>
+  </tr>
+  <{/strip}>
+  <{/section}>
+  <tr>
+    <td colspan="2" class="head">Create New Update To Help Desk Ticket</td>
+  </tr>
+  <form name="updateticket" action="hd_ticket_do.php" method="post">
+  <tr>
+    <td class="title">Updated By:</td>
+    <td class="even"><{$xoops_uname}></td>
+  </tr>
+  <tr>
+    <td class="title">Update Date:</td>
+    <td class="odd"><{$updatedate}></td>
+  </tr>
+  <tr>
+    <td class="title">Update Details:</td>
+    <td class="even"><textarea name='updatedetails' id='updatedetails' rows='5' cols='50'></textarea></td>
+  </tr>
+  <tr>
+    <td class="title">&nbsp;</td>
+    <td class="odd"><input type='submit' class='formButton' name='submit'  id='submit' value='Submit'></td>
+  </tr>
+  <INPUT type="hidden" name="parentticketid" value="<{$ticketid}>">
+  <INPUT type="hidden" name="ticketstate" value="update">
+  </form>
+</table>
